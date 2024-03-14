@@ -1,0 +1,40 @@
+class Employee 
+
+{ 
+
+ String empName;
+ int empNo;
+ float salary;
+ String empDesig;
+ byte expYrs; 
+
+void setEmployee(String Name,int no,String des,byte ex, float basicsalary) 
+ {
+ empName=Name;
+ empNo=no;
+ salary=sal;
+ empDesig=des;
+ expYrs=ex;
+ }
+ void getEmployeeDetails() 
+ { 
+  System.out.println(empName+"\t"+empNo+"\t"+empDesig+"\t"+expYrs+"\t" +salary+"\n"); 
+ } 
+}
+public class demoEmployee
+{ 
+public static void main (String args[]) 
+{
+Employee Rahul=new Employee();
+Rahul.setEmployee("Rahul",128966,99999.0f,"PM",(byte)20); 
+System.out.println("empName\tempNo\tempDesig\texpYrs\tSalary\n"); 
+Rahul.getEmployeeDetails(); 
+Employee Rakesh=newEmployee(); 
+Rakesh.empName="Rakesh Batra";
+Rakesh.empNo=785412;
+Rakesh.salary=894576.0f;
+Rakesh.empDesig="project land";
+Rakesh.empYrs=(byte)10;
+Rahul.getEmployee(); 
+} 
+}
