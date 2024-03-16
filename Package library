@@ -1,0 +1,175 @@
+package Week6; 
+
+import student.Student; 
+
+import requestbook.*; 
+
+import issuebook1.IssueBook; 
+
+class demoSRP { 
+
+public static void main(String[] args) 
+
+ { 
+
+ Student sony = new Student(); 
+
+ 
+
+ sony.setName("Sony Mathew"); 
+
+ sony.setregisterNo("119CS201"); 
+
+ requestBookrb = newrequestBook(); 
+
+ rb.setbookName("Java Programming"); 
+
+ rb.setduration(2); 
+
+ rb.setStudent(sony); 
+
+ rb.searchBook(); 
+
+ IssueBookibOrder = newIssueBook(rb); 
+
+ ibOrder.issueBook(); 
+
+ } 
+
+} 
+
+package student; 
+
+public class Student { 
+
+private String name; 
+
+private String registerNo; 
+
+public String getName() { returnname; } 
+
+public void setName(String name) { this.name = name; } 
+
+public String getregisterNo() { returnregisterNo; } 
+
+public void setregisterNo(String rno) 
+
+ { 
+
+ this.registerNo = rno; 
+
+ } 
+
+} 
+
+package requestbook; 
+
+import student.Student; 
+
+import java.util.Random;
+public class requestBook { 
+
+private Student student; 
+
+private String requestID; 
+
+private String bookName; 
+
+private int duration; 
+
+public Student getStudent() { returnstudent; } 
+
+public void setStudent(Student student) 
+
+ { 
+
+ this.student = student; 
+
+ } 
+
+public String getrequestID() { returnrequestID; } 
+
+public void setrequestID(String bookName) 
+
+ { 
+
+ Random random = newRandom(); 
+
+ this.requestID = (bookName +"-"+ random.nextInt(500)); 
+
+ } 
+
+public String getbookName() { returnbookName; } 
+
+public void setbookName(String bookName) 
+
+ { 
+
+ this.bookName = bookName; 
+
+ setrequestID(bookName); 
+
+ } 
+
+publicintgetduration() { returnduration; } 
+
+public void setduration(intduration) 
+
+ { 
+
+ this.duration = duration; 
+
+ } 
+
+public void searchBook() 
+
+ { 
+
+ System.out.println("Searching book for Student -"
+
+ + this.getStudent().getName() 
+
+ + " who has requested "
+
+ +this.getbookName()); 
+
+ } 
+
+} 
+
+package issuebook1; 
+
+import student.Student; 
+
+import requestbook.requestBook; 
+
+public class IssueBook { 
+
+private requestBook rb;
+public IssueBook(requestBookrb) { this.rb = rb; } 
+
+public void issueBook() 
+
+ { 
+
+ System.out.println("Issuing the book"); 
+
+ System.out.println( 
+
+ " with request id as "
+
+ + this.rb.getrequestID() 
+
+ + " being Issued to "
+
+ + this.rb.getStudent().getName()); 
+
+ System.out.println( 
+
+ "Book is to be delivered to: "
+
+ + this.rb.getStudent().getregisterNo()); 
+
+ } 
+
+}
