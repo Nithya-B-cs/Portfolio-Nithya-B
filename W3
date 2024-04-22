@@ -1,0 +1,47 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class ShoppingCart {
+    private Map<String, Double> items;
+
+    public ShoppingCart() {
+        this.items = new HashMap<>();
+    }
+
+    public void addItem(String itemName, double price) {
+        items.put(itemName, price);
+    }
+
+    public void removeItem(String itemName) {
+        items.remove(itemName);
+    }
+
+    public double calculateTotalPrice() {
+        double totalPrice = 0;
+        for (double price : items.values()) {
+            totalPrice += price;
+        }
+        return totalPrice;
+    }
+
+    public void displayCartDetails() {
+        System.out.println("Items in Cart:");
+        for (Map.Entry<String, Double> entry : items.entrySet()) {
+            System.out.println(entry.getKey() + ": $" + entry.getValue());
+        }
+        System.out.println("Total Price: $" + calculateTotalPrice());
+    }
+
+    public static void main(String[] args) {
+        ShoppingCart cart = new ShoppingCart();
+        cart.addItem("Laptop", 1000.00);
+        cart.addItem("Headphones", 50.00);
+        cart.addItem("Mouse", 20.00);
+
+        cart.displayCartDetails();
+
+        cart.removeItem("Headphones");
+
+        cart.displayCartDetails();
+    }
+}
